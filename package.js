@@ -1,8 +1,8 @@
 Package.describe({
   name: 'jimmiebtlr:like',
   version: '0.0.1',
-  summary: '',
-  git: '',
+  summary: 'Add likes behavior for jagi:astronomy. (Not through standard behaviors though)',
+  git: 'https://github.com/jimmiebtlr/meteor-likes',
   documentation: 'README.md'
 });
 
