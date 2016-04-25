@@ -50,6 +50,15 @@ Likes.attachBehavior = ( model ) => {
 
   model.extend({
     methods: {
+      hasLiked() {
+        const userId = Meteor.userId();
+        return !!Likes.findOne({
+          relatedType: model.getName(),
+          relatedId: this._id,
+          userId: Meteor.userId(),
+        });
+      },
+
       like() {
         const like = new Likes();
         like.set({ relatedType: model.getName(), relatedId: this._id });
@@ -62,6 +71,13 @@ Likes.attachBehavior = ( model ) => {
           userId: Meteor.userId(),
         });
         like.remove();
+      },
+      toggle() {
+        if (this.hasLiked()) {
+          this.unlike();
+        } else {
+          this.like();
+        }
       },
     },
     fields: {

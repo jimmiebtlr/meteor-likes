@@ -1,13 +1,13 @@
 Package.describe({
   name: 'jimmiebtlr:like',
-  version: '0.0.1',
+  version: '0.0.3',
   summary: 'Add likes behavior for jagi:astronomy. (Not through standard behaviors though)',
   git: 'https://github.com/jimmiebtlr/meteor-likes',
   documentation: 'README.md'
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.3-rc.10');
+  api.versionsFrom('1.3');
   api.use([
     'ecmascript',
     'mongo',
@@ -19,11 +19,4 @@ Package.onUse(function(api) {
   api.addFiles('server/publish.js','server');
 
   api.mainModule('like.js');
-});
-
-Package.onTest(function(api) {
-  api.use('ecmascript');
-  api.use('tinytest');
-  api.use('jimmiebtlr:like');
-  api.addFiles('like-tests.js');
 });
